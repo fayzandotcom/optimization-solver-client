@@ -16,6 +16,11 @@ In order to test the functionality of rate limit. Initiate multiple GET request 
 
 Example http://localhost:8081/solve/myString
 
+## Technology Stack
+- Java 8
+- Spring Boot 1.5.2
+- Google Guava 22.0
+
 ## Build and Run
 
 Maven is used for dependencies and project build.
