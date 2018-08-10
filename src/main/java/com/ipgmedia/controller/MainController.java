@@ -20,7 +20,7 @@ public class MainController {
      */
     @GetMapping("solve/{data}")
     public String solve(@PathVariable("data") String data) {
-        return service.solveService(data);
+        return "Solve Result: " + service.solveService(data);
     }
 
 }

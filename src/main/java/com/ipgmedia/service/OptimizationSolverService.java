@@ -2,8 +2,6 @@ package com.ipgmedia.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import com.google.common.util.concurrent.RateLimiter;
 import com.ipgmedia.lib.OptimizationSolver;
@@ -11,7 +9,6 @@ import com.ipgmedia.lib.OptimizationSolver;
 /*
  * Service which wraps the Optimization Solver Framework
  */
-@Service
 public class OptimizationSolverService {
     
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
@@ -30,8 +27,8 @@ public class OptimizationSolverService {
         
         long threadId = Thread.currentThread().getId();
         
-        // acquire permit
-        rateLimiter.acquire();
+        // acquire 1 permit
+        rateLimiter.acquire(1);
         
         try {
             

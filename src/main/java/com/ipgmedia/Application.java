@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.google.common.util.concurrent.RateLimiter;
+import com.ipgmedia.lib.OptimizationSolver;
+import com.ipgmedia.service.OptimizationSolverService;
 
 @SpringBootApplication
 public class Application {
@@ -23,5 +25,16 @@ public class Application {
 	@Bean
 	public RateLimiter rateLimiter() {
 	    return RateLimiter.create(licenseCount);
+	}
+	
+	@Bean
+	public OptimizationSolver optimizationSolver() {
+	    return new OptimizationSolver();
+	}
+	
+	@Bean
+	public OptimizationSolverService optimizationSolverService(OptimizationSolver optimizationSolver, 
+	        RateLimiter rateLimiter) {
+	    return new OptimizationSolverService(optimizationSolver, rateLimiter);
 	}
 }
